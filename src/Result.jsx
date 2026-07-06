@@ -133,12 +133,12 @@ export default function Result() {
 
                 {/* Details */}
                 <div className="flex flex-col gap-3">
-                <h1 className="text-3xl font-bold tracking-tight bg-linear-to-tr to-[#eee] from-[#333] bg-clip-text text-transparent">YASH SINGH BISHT</h1>
+                <h1 className="text-3xl font-bold tracking-tight bg-linear-to-tr from-white to-[#333] bg-clip-text text-transparent">YASH SINGH BISHT</h1>
 
                     <div className="flex gap-4 h-full">
                         <div className="w-full items-center justify-between grid grid-cols-2 gap-3">
                             {details.map((detail) => (
-                                <div className="w-full flex flex-col rounded-xl border border-white/20 p-3 bg-white/10">
+                                <div className="w-full flex flex-col rounded-xl border border-white/20 p-3 bg-white/4">
                                     <h1 className="text-white/50 font- text-xs uppercase">{detail.label}</h1>
                                     <p className="font-extrabold truncate text-md">{detail.value}</p>
                                 </div>
@@ -147,7 +147,7 @@ export default function Result() {
 
                         <div className="border border-white/20 rounded-xl w-80 h-auto hidden md:flex flex-col justify-center px-5">
                             <p className="font-bold text-white/50 text-xs pb-3 uppercase">Cumulative GPA</p>
-                            <h1 className="font-semibold text-6xl">8.81</h1>
+                            <h1 className="font-semibold text-6xl  bg-linear-to-tr from-white to-[#333] bg-clip-text text-transparent">8.81</h1>
                             <p className="font-extrabold text-white/50 text-xs">Out of 10.00</p>
                         </div>
                     </div>
