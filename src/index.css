@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: reg;
-  src: url("fonts/reg.woff2");
+  src: url("./assets/fonts/reg.woff2");
 }
 
 ::-webkit-scrollbar {
