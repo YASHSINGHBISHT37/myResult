@@ -5,6 +5,50 @@
   src: url("./assets/fonts/reg.woff2");
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-bg: white;
+  --color-sec-bg: rgba(0, 0, 0, 0.10);
+  --color-muted-bg: rgb(0, 0, 0, 0.04);
+  --color-text: black;
+  --color-text-muted: rgba(0, 0, 0, 0.5);
+  --color-border: rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+  --color-bg: black;
+  --color-sec-bg: rgba(255, 255, 255, 0.20);
+  --color-muted-bg: #0D0D0D;
+  --color-text: white;
+  --color-muted-text: rgb(255, 255, 255, 0.4);
+  --color-border: rgb(255, 255, 255, 0.20);
+}
+
+@theme {
+  --color-bg: var(--color-bg);
+  --color-sec-bg: var(--color-sec-bg);
+  --color-muted-bg: var(--color-muted-bg);
+  --color-text: var(--color-text);
+  --color-muted-text: var(--color-text-muted);
+  --color-border: var(--color-border);
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -20,27 +64,26 @@ body::-webkit-scrollbar {
   width: 0.4vw;
   display: block;
   cursor: pointer;
+  background: var(--color-bg);
 }
 
 body::-webkit-scrollbar-track {
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(130deg, #121212, white);
+  background: linear-gradient(130deg, var(--color-bg), var(--color-text));
   border-radius: 1vw;
   cursor: pointer;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(-330deg, #121212, white);
+  background: linear-gradient(-330deg, var(--color-bg), var(--color-text));
   cursor: pointer;
 }
 
 body {
-  background-color: black;
-  color: white;
   font-family: reg;
   overflow-x: hidden;
 }
