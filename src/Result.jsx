@@ -133,7 +133,7 @@ export default function Result() {
 
                 {/* Details */}
                 <div className="flex flex-col gap-3">
-                <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-tr to-[#eee] from-[#333] bg-clip-text text-transparent">YASH SINGH BISHT</h1>
+                <h1 className="text-3xl font-bold tracking-tight bg-linear-to-tr to-[#eee] from-[#333] bg-clip-text text-transparent">YASH SINGH BISHT</h1>
 
                     <div className="flex gap-4 h-full">
                         <div className="w-full items-center justify-between grid grid-cols-2 gap-3">
@@ -166,7 +166,7 @@ export default function Result() {
 
                         <div className="border border-white/20 rounded-xl h-36 p-6 flex flex-col justify-center md:hidden">
                             <p className="font-bold text-white/50 text-xs uppercase pb-2">CUMULATIVE GPA</p>
-                            <h1 className="font-semibold text-6xl bg-gradient-to-tr from-[#eee] to-[#464545] bg-clip-text text-transparent">8.81</h1>
+                            <h1 className="font-semibold text-6xl bg-linear-to-tr from-[#eee] to-[#464545] bg-clip-text text-transparent">8.81</h1>
                             <p className="font-bold text-white/50 text-xs">Out of 10.00</p>
                         </div>
 
@@ -181,7 +181,7 @@ export default function Result() {
                     {semMarks.map((item) => (
                         <div className="w-full flex flex-col justify-center rounded-xl border border-white/20 md:border-0 md:p-0 p-4 gap-1 bg-white/7 md:bg-transparent h-30">
                             <p className="text-white/40 text-xs uppercase">{item.label}</p>
-                            <h1 className="text-3xl font-bold uppercase bg-gradient-to-tr from-[#eee] to-[#464545] bg-clip-text text-transparent">{item.value}
+                            <h1 className="text-3xl font-bold uppercase bg-linear-to-tr from-[#eee] to-[#464545] bg-clip-text text-transparent">{item.value}
                                 {item.label === 'marks' && (
                                     <span className="text-sm text-white/50"> / 900</span>
                                 )}

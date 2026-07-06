@@ -49,7 +49,7 @@ export default function Footer() {
                     <p className='text-xs text-white/60 leading-4.5'>Transform passive learning into active remembering. Smriti AI helps you retain knowledge faster with AI-powered study tools and spaced repetition.</p>
                 </div>
 
-                <div className='hidden md:flex items-center justify-between text-sm text-white/60  md:block'>
+                <div className='hidden md:flex items-center justify-between text-sm text-white/60'>
                     <h1>© 2026 myResult. All rights reserved.</h1>
                     <h1>Location: Delhi, India</h1>
                     <h1>Made by Yash Singh Bisht</h1>
@@ -63,7 +63,7 @@ export default function Footer() {
             </div>
             
             <div className='md:h-70 h-23 w-full  overflow-hidden absolute  bottom-0'>
-                <h1 className='text-center font-bold md:text-[32vh] text-[11vh] -bottom-12 md:-bottom-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-gradient-to-tr from-white to-[#333] bg-clip-text text-transparent'>
+                <h1 className='text-center font-bold md:text-[32vh] text-[11vh] -bottom-12 md:-bottom-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-linear-to-tr from-white to-[#333] bg-clip-text text-transparent'>
                     myResult
                 </h1>
             </div>
