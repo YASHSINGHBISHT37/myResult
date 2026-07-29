@@ -26,12 +26,12 @@ export default function HowWeFetch() {
 
     return (
         <div className="w-full z-999999 relative ">
-            <div className="w-full min-h-screen rounded-4xl bg-[#ECF1F0] p-10 pt-30 flex flex-col justify-between gap-20">
+            <div className="w-full min-h-screen rounded-4xl bg-[#ECF1F0] p-10 py-30 flex flex-col justify-between gap-20">
 
                 <div className="flex flex-col justify-between">
                     <div className="borde w-7xl text-right text-bg text-[16vh] uppercase tracking-tighter font-bold">
-                        <h2 className="leading-30 bg-linear-to-tr from-[#EFEAE3] via-black to-[#EFEAE3] bg-clip-text text-transparen">How we fetch</h2>
-                        <h2 className="leading-33 bg-linear-to-tr from-[#EFEAE3] via-black to-[#EFEAE3] bg-clip-text text-transparen">your IPU result ?</h2>
+                        <h2 className="leading-30">How we fetch</h2>
+                        <h2 className="leading-33">your IPU result ?</h2>
                     </div>
 
                     <div className="w-full flex flex-col items-end justify- gap-4 px-10">

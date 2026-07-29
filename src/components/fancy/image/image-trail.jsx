@@ -1,18 +1,12 @@
 // author: Khoa Phan <https://www.pldkhoa.dev>
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { useAnimate } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
-/**
- * Helper functions
- */
 const MathUtils = {
-  // linear interpolation
   lerp: (a, b, n) => (1 - n) * a + n * b,
-  // distance between two points
-  distance: (x1, y1, x2, y2) =>
-    Math.hypot(x2 - x1, y2 - y1),
+  distance: (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1),
 }
 
 const ImageTrail = ({
@@ -45,19 +39,17 @@ const ImageTrail = ({
 
   useEffect(() => {
     allImages.current = containerRef?.current?.querySelectorAll(".image-trail-item")
-
     zIndices.current = Array.from({ length: allImages.current.length }, (_, index) => index)
   }, [containerRef, allImages])
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (clientX, clientY) => {
     const containerRect = containerRef?.current?.getBoundingClientRect()
     const mousePos = {
-      x: e.clientX - (containerRect?.left || 0),
-      y: e.clientY - (containerRect?.top || 0),
+      x: clientX - (containerRect?.left || 0),
+      y: clientY - (containerRect?.top || 0),
     }
 
     cachedMousePos.current.x = MathUtils.lerp(cachedMousePos.current.x || mousePos.x, mousePos.x, clampedIntensity)
-
     cachedMousePos.current.y = MathUtils.lerp(cachedMousePos.current.y || mousePos.y, mousePos.y, clampedIntensity)
 
     const distance = MathUtils.distance(mousePos.x, mousePos.y, lastMousePos.current.x, lastMousePos.current.y)
@@ -67,19 +59,13 @@ const ImageTrail = ({
       const current = currentId.current
 
       if (zIndexDirection === "new-on-top") {
-        // Shift others down, put current on top
         for (let i = 0; i < N; i++) {
-          if (i !== current) {
-            zIndices.current[i] -= 1
-          }
+          if (i !== current) zIndices.current[i] -= 1
         }
         zIndices.current[current] = N - 1
       } else {
-        // Shift others up, put current at bottom
         for (let i = 0; i < N; i++) {
-          if (i !== current) {
-            zIndices.current[i] += 1
-          }
+          if (i !== current) zIndices.current[i] += 1
         }
         zIndices.current[current] = 0
       }
@@ -91,15 +77,12 @@ const ImageTrail = ({
 
       animate(allImages.current[currentId.current], {
         x: [
-          cachedMousePos.current.x -
-            allImages.current[currentId.current].offsetWidth / 2,
+          cachedMousePos.current.x - allImages.current[currentId.current].offsetWidth / 2,
           mousePos.x - allImages.current[currentId.current].offsetWidth / 2,
         ],
         y: [
-          cachedMousePos.current.y -
-            allImages.current[currentId.current].offsetHeight / 2,
-          mousePos.y -
-            allImages.current?.[currentId.current].offsetHeight / 2,
+          cachedMousePos.current.y - allImages.current[currentId.current].offsetHeight / 2,
+          mousePos.y - allImages.current?.[currentId.current].offsetHeight / 2,
         ],
         ...keyframes,
       }, {
@@ -112,16 +95,22 @@ const ImageTrail = ({
     }
   }
 
+  // global mouse tracking so the container can stay pointer-events-none
+  useEffect(() => {
+    const onWindowMouseMove = (e) => handleMouseMove(e.clientX, e.clientY)
+    window.addEventListener("mousemove", onWindowMouseMove)
+    return () => window.removeEventListener("mousemove", onWindowMouseMove)
+  }, [threshold, intensity, keyframes, keyframesOptions, baseZIndex, zIndexDirection])
+
   const ElementTag = as ?? "div"
 
   return (
     <ElementTag
       className={cn("h-full w-full relative", className)}
-      onMouseMove={handleMouseMove}
       ref={containerRef}
       {...props}>
-      {Array.from({ length: repeatChildren }).map(() => (
-        <>{children}</>
+      {Array.from({ length: repeatChildren }).map((_, i) => (
+        <React.Fragment key={i}>{children}</React.Fragment>
       ))}
     </ElementTag>
   );
@@ -137,11 +126,7 @@ export const ImageTrailItem = ({
   return (
     <ElementTag
       {...props}
-      className={cn(
-        "absolute top-0 left-0 will-change-transform hidden",
-        className,
-        "image-trail-item"
-      )}>
+      className={cn("absolute top-0 left-0 will-change-transform hidden", className, "image-trail-item")}>
       {children}
     </ElementTag>
   );

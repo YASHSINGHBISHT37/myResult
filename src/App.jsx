@@ -1,23 +1,25 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import GrainOverlay from './components/ui/GrainOverlay'
+
 import Nav from '@/components/navigation/Nav'
+import Footer from '@/components/navigation/Footer'
+
 import Home from '@/pages/Home'
+import IpuResult from '@/pages/IpuResult'
 import Leaderboard from '@/pages/Leaderboard'
+import StudyResources from '@/pages/StudyResources'
+
 import About from '@/pages/About'
 import PrivacyPolicy from '@/pages/PrivacyPolicy'
 import TermsOfUse from '@/pages/TermsOfUse'
-import F from '@/components/navigation/F'
-import StudyResources from '@/pages/StudyResources'
-import IpuResult from '@/pages/IpuResult'
-import GridBackground from './components/ui/GridBackground'
-import PixelPattern from './components/ui/PixelPattern'
+
 import Sd from './pages/Sd'
-import ImageTrailDemo from './pages/ImageTrailDemo'
-import Footer from '@/components/navigation/Footer'
-import useLenis from '@/components/ui/useLenis'
-import FAQs from './components/home/FAQs'
 import Login from './components/login/Login'
+
+import useLenis from '@/components/ui/useLenis'
+import Cursor from './components/ui/Cursor'
+import GrainOverlay from './components/ui/GrainOverlay'
+
 
 export default function App() {
   useLenis()
@@ -26,11 +28,9 @@ export default function App() {
     <div id="scroll-wrapper" className='w-screen h-screen overflow-y-scroll scrollbar-hide'>
       <div id="scroll-content" className='w-full pointer-events-auto'>
         {/* <Login/> */}
-        <Nav />
-        {/* <FAQs/> */}
+        {/* <Sd /> */}
 
-        <Sd />
-        {/* <ImageTrailDemo/> */}
+        <Nav />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -42,11 +42,10 @@ export default function App() {
           <Route path="/terms-of-use" element={<TermsOfUse />} />
         </Routes>
 
-
-
         <Footer />
 
-        {/* <F /> */}
+
+        <div className="fixed inset-0 pointer-events-none z-9"><Cursor /></div>
         <GrainOverlay />
       </div>
     </div>

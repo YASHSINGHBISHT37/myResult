@@ -36,8 +36,8 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <div className="md:px-4 px-2 relative z-1 bg-black pt-4">
-      <div className=" sticky bottom-0 left-0 w-full h-120 md:h-180 bg-[#ECF1F0] flex justify-center items-center rounded-t-4xl">
+    <div className="md:p-4 md:pt-0 relative z-99 bg-black">
+      <div className=" sticky bottom-0 left-0 w-full h-120 md:h-180 bg-[#ECF1F0] flex justify-center items-center rounded-4xl overflow-hidden">
 
         <div className="absolute inset-0 z-40 pointer-events-auto overflow-hidden">
           <ImageTrail
