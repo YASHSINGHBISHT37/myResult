@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "src/components/result/cal/Formula.jsx", "src/components/home", "../Server/src/utils/subjectCredits.js"]
+}
