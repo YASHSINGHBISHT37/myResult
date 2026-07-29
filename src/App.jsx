@@ -14,7 +14,6 @@ import GridBackground from './components/ui/GridBackground'
 import PixelPattern from './components/ui/PixelPattern'
 import Sd from './pages/Sd'
 import ImageTrailDemo from './pages/ImageTrailDemo'
-import Cir from './pages/Cir'
 import Footer from '@/components/navigation/Footer'
 import useLenis from '@/components/ui/useLenis'
 import FAQs from './components/home/FAQs'
@@ -26,13 +25,12 @@ export default function App() {
   return (
     <div id="scroll-wrapper" className='w-screen h-screen overflow-y-scroll scrollbar-hide'>
       <div id="scroll-content" className='w-full pointer-events-auto'>
-        <Login/>
+        {/* <Login/> */}
         <Nav />
         {/* <FAQs/> */}
 
-        {/* <Sd /> */}
+        <Sd />
         {/* <ImageTrailDemo/> */}
-        {/* <Cir/> */}
 
         <Routes>
           <Route path="/" element={<Home />} />
