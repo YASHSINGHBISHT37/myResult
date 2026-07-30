@@ -1,8 +1,6 @@
 import React from 'react'
 import { fancyImgs } from "@/data/FancyImgs"
-import useScreenSize from "@/hooks/use-screen-size"
 import CirclingElements from '../fancy/blocks/circling-elements'
-import { motion } from "motion/react";
 import LogoAni from '../ui/LogoAni';
 
 
