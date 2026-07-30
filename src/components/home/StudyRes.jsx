@@ -1,10 +1,12 @@
 import React from 'react'
 import { fancyImgs } from "@/data/FancyImgs"
+import useScreenSize from "@/hooks/use-screen-size"
 import CirclingElements from '../fancy/blocks/circling-elements'
 import LogoAni from '../ui/LogoAni';
 
 
 export default function StudyRes() {
+    const screenSize = useScreenSize()
     return (
         <div className="relative w-full min-h-330 flex flex-col p-6 py-30 bg-black">
 
