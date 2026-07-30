@@ -12,8 +12,8 @@ const navItems = [
     { name: "Study Resource", href: "/study-resources" },
     { name: "Leaderboard", href: "/leaderboard" },
     { name: "About Us", href: "/about" },
-    { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Terms of Use", href: "/terms-of-use" },
+    // { name: "Privacy Policy", href: "/privacy-policy" },
+    // { name: "Terms of Use", href: "/terms-of-use" },
 ]
 
 const social = [

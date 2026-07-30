@@ -54,8 +54,8 @@ export default function HowWeFetch() {
                 {/* Main */}
                 <div className="w-full flex flex-col gap-4 items-">
                     {steps.map((item, i) => (
-                        <div className={`borde rounded-full bg-[${item.color}] text-bg p-1  flex items-center justify-between gap-30 w-8xl nth-[3]:ml-40 nth-[2]:ml-80 nth-[1]:ml-120 hover:scale-105 transition-all duration-500 ease-in-out`}>
-                            <div className={`flex border-3 bg-[${item.color}] w-full h-full p-4 pr-10 rounded-full`}>
+                        <div key={i} style={{backgroundColor:item.color}} className={`borde rounded-full bg-[${item.color}] text-bg p-1 flex items-center justify-between gap-30 w-8xl nth-[3]:ml-40 nth-[2]:ml-80 nth-[1]:ml-120 hover:scale-105 transition-all duration-500 ease-in-out`}>
+                            <div className={`flex border-3 w-full h-full p-4 pr-10 rounded-full`}>
 
                                 <div className='flex items-center gap-10'>
                                     <div className="rounded-full border-3 border-bg w-40 h-40 overflow-clip flex items-center justify-center bg-[#ECF1F0] shrink-0">

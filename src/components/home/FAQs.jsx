@@ -1,7 +1,7 @@
 import { Plus, Minus } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../motion-primitives/accordion';
 import faqs from '@/data/faqs'
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 
 export default function FAQs() {
@@ -10,7 +10,7 @@ export default function FAQs() {
 
       <div className="flex flex-col justify-between">
         <div className="borde w-8xl text-text text-[16vh] uppercase tracking-tighter font-bold flex flex-col items-center">
-          <h2 className="text-xl tracking-normal text-pink-300 capitalize pb-4 pr-200">[ FAQs ]</h2>
+          <h2 className="text-xl tracking-normal text-pink-300 capitalize pb-10 pr-200">[ FAQs ]</h2>
           <h2 className="leading-30">Frequently</h2>
 
           <h2 className="leading-30 text-right flex items-center gap-2">Asked Questi

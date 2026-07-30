@@ -6,7 +6,8 @@ import WhyChooseUs from "../components/home/WhyChooseUs";
 import Marquee from "@/components/ui/Marquee";
 import HeroSection from "@/components/home/HeroSection";
 import HowWeFetch from "@/components/home/HowWeFetch";
-import Testing from "./Testing";
+import S from "./Testing";
+import StudyRes from "@/components/home/StudyRes";
 
 export default function Home() {
     document.title = "myResult® - ";
@@ -16,29 +17,11 @@ export default function Home() {
 
             <HeroSection />
             <HowWeFetch />
-            <Testing/>
-
-
-            {/* <div className="w-7xl min-h-screen p-8 mt-8">
-                <div className="border-t border-border-20 pt-16 flex flex-col gap-8">
-                    <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-muted-text"></div>
-                        <h1 className="text-muted-text text-xl">samdnb</h1>
-                    </div>
-                    <h1 className="text-7xl tracking-tigher font-bol leading-18">
-                        Design is a team sport.
-                        It’s where grit meets finesse.
-                        Where setbacks shape champions.
-                        Over the years,
-                        we’ve built a dynasty,
-                        A shining gold standard
-                        that fuels our hustle in
-                        this digital game.
-                    </h1>
-                </div>
-            </div> */}
-
+            <StudyRes/>
             <WhyChooseUs />
+
+            {/* <Testing/> */}
+
 
             {/* <Marquee direction="right" />
             <Marquee direction="left" /> */}
