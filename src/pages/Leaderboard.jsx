@@ -5,6 +5,8 @@ import GradText from '@/components/ui/GradText'
 import PageTemplate from '@/components/ui/PageTemplate'
 
 export default function Leaderboard() {
+    document.title = "Leaderboard - myResult®";
+
     const gridCols = "grid-cols-[170px_1fr_100px_80px_120px_90px_90px]"
 
     const options = [

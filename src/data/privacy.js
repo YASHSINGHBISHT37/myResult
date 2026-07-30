@@ -4,7 +4,11 @@ const privacy = {
     points: [
         {
             head: 'Information We Collect',
-            subHead: 'When you use myResult, we may collect information such as your enrollment number, name, program/course details, and examination results fetched from the official GGSIPU portal. We may also collect basic technical information like browser type and device information for improving the platform.'
+            subHead: 'When you use myResult, we collect the enrollment number and password you provide solely to retrieve your result from the official GGSIPU portal, along with your name, program/course details, and examination results returned by that portal. We may also collect basic technical information such as browser type and device information to improve the platform.'
+        },
+        {
+            head: 'Credential Handling',
+            subHead: 'Your enrollment number and password are used only to authenticate with the official GGSIPU portal on your behalf and are not stored on our servers beyond the duration of your session. We do not have independent access to any IPU database, and we cannot view or modify data that isn\u2019t already available to you on the official portal.'
         },
         {
             head: 'How We Use Your Information',
@@ -12,11 +16,11 @@ const privacy = {
         },
         {
             head: 'Leaderboard Data',
-            subHead: 'If you choose to opt into the leaderboard, your name and result-related information will be displayed publicly to other users of the platform. Participation is entirely voluntary, and you may request removal of your data from the leaderboard at any time.'
+            subHead: 'If you opt into the leaderboard, your name and result-related information will be visible to other users of the platform. Participation is entirely voluntary, and you may request removal of your data from the leaderboard at any time.'
         },
         {
             head: 'Data Storage & Security',
-            subHead: 'We take reasonable measures to protect your data from unauthorized access, alteration, or disclosure. Data is stored securely using industry-standard practices, though no method of electronic storage is 100% secure.'
+            subHead: 'We take reasonable measures to protect your data from unauthorized access, alteration, or disclosure, using industry-standard security practices. However, no method of electronic storage or transmission is completely secure.'
         },
         {
             head: 'Third-Party Sharing',
@@ -24,7 +28,7 @@ const privacy = {
         },
         {
             head: 'Cookies & Tracking',
-            subHead: 'myResult may use cookies or similar technologies to enhance your browsing experience, remember your theme preference, and analyze site usage. You can disable cookies through your browser settings, though some features may not function as intended.'
+            subHead: 'myResult may use cookies or similar technologies to maintain your session, remember your theme preference, and analyze site usage. You can disable cookies through your browser settings, though some features may not function as intended.'
         },
         {
             head: 'Data Retention',
@@ -32,7 +36,7 @@ const privacy = {
         },
         {
             head: 'Your Rights',
-            subHead: 'You have the right to access, update, or request deletion of your personal data at any time. You may also withdraw consent for leaderboard participation whenever you wish.'
+            subHead: 'You have the right to access, update, or request deletion of your personal data at any time, and to withdraw consent for leaderboard participation whenever you wish.'
         },
         {
             head: 'Children\u2019s Privacy',
@@ -40,11 +44,11 @@ const privacy = {
         },
         {
             head: 'Changes to This Policy',
-            subHead: 'We may update this Privacy Policy from time to time to reflect changes in our practices. Continued use of the platform after such updates constitutes your acceptance of the revised policy.'
+            subHead: 'We may update this Privacy Policy from time to time to reflect changes in our practices. Continued use of the platform after such updates constitutes acceptance of the revised policy.'
         },
         {
             head: 'Contact',
-            subHead: 'If you have any questions or concerns about this Privacy Policy or how your data is handled, please reach out to us through our support page.'
+            subHead: 'If you have questions or concerns about this Privacy Policy or how your data is handled, please reach out to us through our support page.'
         }
     ]
 }

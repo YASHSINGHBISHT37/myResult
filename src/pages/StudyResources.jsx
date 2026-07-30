@@ -3,6 +3,8 @@ import Resource from '@/components/study-resources/Resource';
 import PageTemplate from '@/components/ui/PageTemplate';
 
 export default function StudyResources() {
+    document.title = "Study Resources - myResult®";
+
     const Programs = [
         {
             code: "BCA",

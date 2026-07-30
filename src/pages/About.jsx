@@ -4,6 +4,8 @@ import GradText from '@/components/ui/GradText'
 import PageTemplate from '@/components/ui/PageTemplate'
 
 export default function About() {
+    document.title = "About - myResult®";
+
     return (
         <PageTemplate>
             <div className='flex flex-col md:px-50'>

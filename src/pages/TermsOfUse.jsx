@@ -4,23 +4,26 @@ import terms from '@/data/terms'
 import PageTemplate from '@/components/ui/PageTemplate'
 
 export default function TermsOfUse() {
+    document.title = "Terms Of Use - myResult®";
     return (
-        <PageTemplate>
-            <div className="md:w-6xl w-full flex flex-col">
+        <div className="w-full flex flex-col items-center p-20 py-40">
 
-                <div className='flex flex-col gap-2 pb-10 md:pb-26'>
-                    <GradText text='Terms Of Use' size={15} />
-                    <p className='text-text text-xs md:text-sm w-full md:w-3xl leading-3.5 md:leading-snug'>{terms.subHead}</p>
-                </div>
+            {/* Heading */}
+            <div className="borde text-[17vh] uppercase tracking-tighter font-bold text-[#ECF1F0] pb-20">
+                <h2 className="leading-36 pr-70">Terms </h2>
+                <h2 className="leading-33 pl-70">Of use</h2>
+            </div>
 
+
+            <div className='w-6xl'>
                 {terms.points.map((item, i) => (
-                    <div key={i} className='flex flex-col gap-1 md:flex-row md:gap-24 items-start w-full border-b last:border-0 py-8 px-4 border-border-10 round'>
-                        <h1 className='text-text font-bold w-full md:w-64 shrink-0'>{i + 1}. {item.head}</h1>
+                    <div key={i} className='flex flex-col gap-1 md:flex-row md:gap-24 text-3xl items-start w-full border-b last:border-0 py-8 px-4 border-border-10 round'>
+                        <h1 className='text-text font-bold tracking-tight w-full md:w-64 text-2xl shrink-0'>{i + 1}. {item.head}</h1>
                         <p className='text-muted-text text-xs md:text-sm text-left leading-4 md:leading-snug'>{item.subHead}</p>
                     </div>
                 ))}
-
             </div>
-        </PageTemplate>
+
+        </div>
     )
 }

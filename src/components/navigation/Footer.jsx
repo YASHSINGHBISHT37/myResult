@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import { fancyImgs } from "@/data/FancyImgs"
 import ImageTrail, { ImageTrailItem } from "@/components/fancy/image/image-trail"
 import LineAni from "../ui/LineAni"
+import Marquee from "../ui/Marquee"
 
 const footerLinks = [
   {
@@ -37,6 +38,7 @@ const footerLinks = [
 export default function Footer() {
   return (
     <div className="md:p-4 md:pt-0 relative z-99 bg-black">
+      <Marquee/>
       <div className=" sticky bottom-0 left-0 w-full h-120 md:h-180 bg-[#ECF1F0] flex justify-center items-center rounded-4xl overflow-hidden">
 
         <div className="absolute inset-0 z-40 pointer-events-auto overflow-hidden">

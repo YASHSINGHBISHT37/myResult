@@ -1,38 +1,69 @@
-import { ChevronRight } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../motion-primitives/accordion';
 import faqs from '@/data/faqs'
+import { motion, AnimatePresence } from "motion/react";
+
 
 export default function FAQs() {
   return (
-    <div className='w-6xl flex flex-col relative z-999'>
+    <div className='w-full min-h-screen flex flex-col relative bg-black p-10 py-40'>
 
-      <h1 className='text-text font-bold text-6xl pb-6'>Frequently <br /> Asked Questions</h1>
+      <div className="flex flex-col justify-between">
+        <div className="borde w-8xl text-text text-[16vh] uppercase tracking-tighter font-bold flex flex-col items-center">
+          <h2 className="text-xl tracking-normal text-pink-300 capitalize pb-4 pr-200">[ FAQs ]</h2>
+          <h2 className="leading-30">Frequently</h2>
 
-      <Accordion
-        className='flex w-full flex-col gap-2'
-        transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-        variants={{ expanded: { opacity: 1, scale: 1, }, collapsed: { opacity: 0, scale: 0.7, }, }}>
+          <h2 className="leading-30 text-right flex items-center gap-2">Asked Questi
+            <motion.img className="w-40 h-40" src="/trail-images/2.png"
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "linear"
+              }} />
+            ns
+          </h2>
 
-        {faqs.points.map((item, i) => (
-          <AccordionItem key={item.head} value={item.head} className='border border-border-10 rounded-3xl p-4 px-6 bg-bg cursor-pointer'>
+        </div>
 
-            <AccordionTrigger className='w-full py-0.5 text-left text-muted-text'>
-              <div className='flex items-center justify-between cursor-pointer'>
-                <h1 className='text-text text-lg font-bold'>{item.head}</h1>
-                {/* <ChevronRight className='h-4 w-4 text-muted-text transition-transform duration-200 group-data-expanded:rotate-90' /> */}
-                <div className='bg-whit p-2 rounded-full flex items-center justify-center'>
-                  <i className="ph ph-x text-black text-2xl"></i>
-                </div>
-              </div>
-            </AccordionTrigger>
+        <div className="w-full flex flex-col items-end justify- gap-4 px-10 pt-30 ">
+          <p className=" text-2xl tracking-tighter w-lg leading-6.5 text-right text-pink-300">
+            * Please email us at myResult@gmail.com if you have any other questions. *
+          </p>
+        </div>
+      </div>
 
-            <AccordionContent className='origin-left w-5xl'>
-              <p className=' text-muted-text text-sm'>{item.subHead}</p>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
 
-      </Accordion>
+      <div className='mt-20 w-full flex items-center justify-center'>
+
+        <div className='w-6xl'>
+          <Accordion
+            className='flex w-full flex-col divide-y divide-border-20'
+            transition={{ duration: 0.2, ease: 'easeInOut' }}>
+
+            {faqs.points.map((item) => (
+              <AccordionItem key={item.head} value={item.head} className='py-6 group'>
+
+                <AccordionTrigger className='w-full text-left text-zinc-950 dark:text-zinc-50 cursor-pointer'>
+                  <div className='flex items-center justify-between text-white'>
+                    <h1 className='text-2xl text-[#ECF1F0] tracking-tighter'>{item.head}</h1>
+                    <div className='relative h-4 w-4'>
+                      <Plus className='h-4 w-4 absolute inset-0 transition-all duration-200 group-data-expanded:opacity-0 group-data-expanded:rotate-90 dark:text-zinc-50' />
+                      <Minus className='h-4 w-4 absolute inset-0 transition-all duration-200 opacity-0 -rotate-90 group-data-expanded:opacity-100 group-data-expanded:rotate-0 dark:text-zinc-50' />
+                    </div>
+                  </div>
+                </AccordionTrigger>
+
+                <AccordionContent>
+                  <p className='text-muted-text w-xl leading-4.5 pt-6'>{item.subHead}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
+
+
     </div>
   )
 }

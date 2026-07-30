@@ -7,6 +7,8 @@ import BottomLinks from '@/components/login/BottomLinks';
 
 
 export default function Login() {
+  document.title = "Login - myResult®";
+
   const navigate = useNavigate()
 
   const handleLoginSuccess = (sessionId) => {

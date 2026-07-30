@@ -6,20 +6,20 @@ import WhyChooseUs from "../components/home/WhyChooseUs";
 import Marquee from "@/components/ui/Marquee";
 import HeroSection from "@/components/home/HeroSection";
 import HowWeFetch from "@/components/home/HowWeFetch";
+import Testing from "./Testing";
 
 export default function Home() {
-
-
-
+    document.title = "myResult® - ";
 
     return (
         <div className="w-full min-h-screen relative bg-black z-1">
 
             <HeroSection />
             <HowWeFetch />
+            <Testing/>
 
 
-            <div className="w-7xl min-h-screen p-8 mt-8">
+            {/* <div className="w-7xl min-h-screen p-8 mt-8">
                 <div className="border-t border-border-20 pt-16 flex flex-col gap-8">
                     <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-muted-text"></div>
@@ -36,14 +36,14 @@ export default function Home() {
                         this digital game.
                     </h1>
                 </div>
-            </div>
+            </div> */}
 
             <WhyChooseUs />
 
-            <Marquee direction="right" />
-            <Marquee direction="left" />
+            {/* <Marquee direction="right" />
+            <Marquee direction="left" /> */}
 
-            {/* <FAQs /> */}
+            <FAQs />
 
 
         </div>

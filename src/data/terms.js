@@ -16,7 +16,11 @@ const terms = {
         },
         {
             head: 'Accuracy of Information',
-            subHead: 'While we strive to display accurate results, the data shown on myResult is fetched from the official IPU portal and may occasionally be incomplete, delayed, or incorrect due to technical issues. We recommend cross-verifying your results on the official university portal before relying on them for any academic or administrative purpose.'
+            subHead: 'While we strive to display accurate results, the data shown on myResult is fetched directly from the official IPU portal and may occasionally be incomplete, delayed, or incorrect due to technical issues on the university\u2019s end. We recommend cross-verifying your results on the official university portal before relying on them for any academic or administrative purpose.'
+        },
+        {
+            head: 'Your Credentials',
+            subHead: 'To retrieve your result, you provide your enrollment number and password, which are used solely to authenticate with the official GGSIPU portal on your behalf. You are responsible for keeping your credentials confidential and for the accuracy of the details you enter. myResult does not have independent access to any IPU database and cannot view or alter data beyond what is already available to you on the official portal.'
         },
         {
             head: 'User Responsibilities',
@@ -28,7 +32,7 @@ const terms = {
         },
         {
             head: 'Privacy & Data Usage',
-            subHead: 'We collect limited information such as enrollment number, name, and academic results solely to provide our services. Your data is not sold or shared with third parties for marketing purposes. Please refer to our Privacy Policy for more details.'
+            subHead: 'We collect limited information — including your enrollment number, password, name, and academic results — solely to provide our services. Your data is not sold or shared with third parties for marketing purposes. Please refer to our Privacy Policy for full details on how your information, including your credentials, is handled.'
         },
         {
             head: 'Intellectual Property',
@@ -40,7 +44,7 @@ const terms = {
         },
         {
             head: 'Changes to These Terms',
-            subHead: 'We reserve the right to update or modify these Terms of Use at any time without prior notice. Continued use of the platform after changes are made constitutes your acceptance of the revised terms.'
+            subHead: 'We reserve the right to update or modify these Terms of Use at any time without prior notice. Continued use of the platform after changes are made constitutes acceptance of the revised terms.'
         },
         {
             head: 'Termination',
