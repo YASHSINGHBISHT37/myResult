@@ -208,22 +208,22 @@ export default function Resource() {
 
 
     return (
-        <div className='flex flex-col gap-10 md:w-5xl'>
-            <div className=" flex items-center gap-3">
+        <div className='flex flex-col gap-10 md:w-7xl items-center'>
+            <div className=" flex items-center gap-3 w-3xl">
                 {/* Search */}
-                <div className='border border-border-10 rounded-full bg-muted-bg h-12 items-center flex px-5 w-full gap-2'>
-                    <i className="ph ph-magnifying-glass text-lg"></i>
-                    <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} className='text-text text-sm dark:text-text w-full outline-0' placeholder='Search your Program...' />
+                <div className='border-2 text-bg border-bg rounded-full bg-muted-bg h-12 items-center flex px-5 w-full gap-2'>
+                    <i className="ph ph-magnifying-glass text-xl"></i>
+                    <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} className='text-md w-full outline-0' placeholder='Search your Program...' />
                 </div>
 
-                <div className='flex items-center justify-center gap-3 border border-border-10 h-12 rounded-2xl px-4 bg-black/40'>
+                <div className='flex items-center justify-center gap-3 h-12 rounded-2xl px-4 bg-bg'>
                     <div className='flex items-center gap-1'>
-                        <GradText text='70' size={1.6} />
+                        <GradText text='70' size={2} />
                         <h1 className='text-muted-text text-sm'>Programs</h1>
                     </div>
 
                     <div className='flex items-center gap-1 border-l border-border-20 pl-3'>
-                        <GradText text='21' size={1.6} />
+                        <GradText text='21' size={2} />
                         <h1 className='text-muted-text text-sm'>Groups</h1>
                     </div>
                 </div>
@@ -236,28 +236,31 @@ export default function Resource() {
                 </div>
             )}
 
-            {filteredPrograms.map((item, i) => (
-                <div key={i}>
-                    <div className='border-b border-border-10 py-2 flex items-center justify-between mb-4'>
-                        <h1 className='text-xl tracking-tight'>{item.name}</h1>
+            <div className='flex flex-col gap-12 w-6xl'>
+                {filteredPrograms.map((item, i) => (
+                    <div key={i}>
+                        <div className='border-b border-border-10 py-2 flex items-center justify-between mb-2'>
+                            <h1 className='text-4xl tracking-tight text-bg font-bold'>{item.name}</h1>
 
-                        <div className='flex items-center gap-1 border border-border-10 rounded-full p-3 py-1 bg-black/30'>
-                            <GradText text={item.program.length} size={1.6} />
-                            <h1 className='text-muted-text text-sm'>Programs</h1>
+                            <div className='flex items-center gap-1 border border-border-10 rounded-full p-3 py-1'>
+                                <GradText text={item.program.length} size={1.6} />
+                                <h1 className='text-muted-text text-sm'>Programs</h1>
+                            </div>
+                        </div>
+
+                        <div className='grid grid-cols-4 gap-4 border w-full'>
+                            {item.program.map((p, j) => (
+                                <Tilt key={j} rotationFactor={8} isRevese className=' border-2 h-40 border-bg rounded-2xl p-4 pb-3 bg-blue-400 cursor-pointer flex flex-col justify-between' >
+                                    <i className="ph ph-arrow-up-right text-md text-muted-text/50 absolute top-3 right-3 "></i>
+                                    {/* <h1 className="font-bold text-4xl tracking-tighter bg-linear-to-tr to-white from-[#333] bg-clip-text text-transparent">{p.code}</h1> */}
+                                    <h1 className="font-bold text-4xl tracking-tighter text-amber-100">{p.code}</h1>
+                                    <h1 className='text-muted-text text-sm leading-4.5 line-clamp h-10 flex items-center mt-5'>{p.name}</h1>
+                                </Tilt>
+                            ))}
                         </div>
                     </div>
-
-                    <div className='grid grid-cols-4 gap-4'>
-                        {item.program.map((p, j) => (
-                            <Tilt key={j} rotationFactor={8} isRevese className='border border-border-10 rounded-2xl p-4 pb-3 bg-black/40 cursor-pointer flex flex-col justify-between' >
-                                <i className="ph ph-arrow-up-right text-md text-muted-text/50 absolute top-3 right-3 "></i>
-                                <h1 className="font-bold text-4xl tracking-tighter bg-linear-to-tr to-white from-[#333] bg-clip-text text-transparent">{p.code}</h1>
-                                <h1 className='text-muted-text text-sm leading-4.5 line-clamp h-10 flex items-center mt-5'>{p.name}</h1>
-                            </Tilt>
-                        ))}
-                    </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     )
 }

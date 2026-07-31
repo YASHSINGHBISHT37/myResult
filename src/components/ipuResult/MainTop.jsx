@@ -40,7 +40,12 @@ export default function MainTop() {
 
             <div className="w-full h-full backdrop-blur-2xl rounded-xl flex flex-col gap-2">
 
-                <div className='flex justify-between h-full border p-5 border-border-20 rounded-3xl bg-muted-bg'>
+
+                <h1 className='text-5xl tracking-tighter font-bold text-text px-3 uppercase'>yash singh bisht</h1>
+
+                
+                
+                <div className='flex justify-between h-full border p-8 border-border-20 rounded-4xl bg-[#ECF1F0]'>
                     <div className="flex flex-col gap-4 h-full">
                         <h1 className='text-5xl font-bold text-text px-3 uppercase'>yash singh bisht</h1>
 
@@ -64,7 +69,7 @@ export default function MainTop() {
                 </div>
 
                 {/* Semester selector — single source of truth */}
-                <ChooseSem/>
+                <ChooseSem />
             </div>
         </div>
     )

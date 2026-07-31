@@ -19,6 +19,7 @@ import Login from './components/login/Login'
 import useLenis from '@/components/ui/useLenis'
 import Cursor from './components/ui/Cursor'
 import GrainOverlay from './components/ui/GrainOverlay'
+import NotFound from './components/ui/NotFound'
 
 
 export default function App() {
@@ -27,7 +28,7 @@ export default function App() {
   return (
     <div id="scroll-wrapper" className='w-screen h-screen overflow-y-scroll scrollbar-hide'>
       <div id="scroll-content" className='w-full pointer-events-auto'>
-        {/* <Login/> */}
+        {/* <Login /> */}
         {/* <Sd /> */}
 
         <Nav />
@@ -40,12 +41,13 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <Footer />
 
 
-        <div className="fixed inset-0 pointer-events-none z-9"><Cursor /></div>
+        <div className="fixed inset-0 pointer-events-none z-9 hidden md:block"><Cursor /></div>
         <GrainOverlay />
       </div>
     </div>

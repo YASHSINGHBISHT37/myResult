@@ -6,15 +6,15 @@ import { motion } from "motion/react";
 
 export default function FAQs() {
   return (
-    <div className='w-full min-h-screen flex flex-col relative bg-black p-10 py-40'>
+    <div className='w-full min-h-screen flex flex-col relative bg-black md:p-10 md:py-40 p-4 pt-30'>
 
       <div className="flex flex-col justify-between">
-        <div className="borde w-8xl text-text text-[16vh] uppercase tracking-tighter font-bold flex flex-col items-center">
-          <h2 className="text-xl tracking-normal text-pink-300 capitalize pb-10 pr-200">[ FAQs ]</h2>
-          <h2 className="leading-30">Frequently</h2>
+        <div className="borde md:w-8xl text-text text-3xl md:text-[16vh] uppercase tracking-tighter font-bold flex flex-col items-center">
+          <h2 className="md:text-xl text-xs tracking-normal text-pink-300 capitalize md:pb-10 md:pr-200">[ FAQs ]</h2>
+          <h2 className="md:leading-30">Frequently</h2>
 
-          <h2 className="leading-30 text-right flex items-center gap-2">Asked Questi
-            <motion.img className="w-40 h-40" src="/trail-images/2.png"
+          <h2 className="md:leading-30 text-right flex items-center gap-1 md:gap-2">Asked Questi
+            <motion.img className="w-10 h-10 md:w-40 md:h-40" src="/trail-images/2.png"
               animate={{ rotate: 360 }}
               transition={{
                 duration: 3,
@@ -36,7 +36,7 @@ export default function FAQs() {
 
       <div className='mt-20 w-full flex items-center justify-center'>
 
-        <div className='w-6xl'>
+        <div className='md:w-6xl'>
           <Accordion
             className='flex w-full flex-col divide-y divide-border-20'
             transition={{ duration: 0.2, ease: 'easeInOut' }}>
@@ -55,7 +55,7 @@ export default function FAQs() {
                 </AccordionTrigger>
 
                 <AccordionContent>
-                  <p className='text-muted-text w-xl leading-4.5 pt-6'>{item.subHead}</p>
+                  <p className='text-muted-text md:w-xl leading-4.5 pt-6'>{item.subHead}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}

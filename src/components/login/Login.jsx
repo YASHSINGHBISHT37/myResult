@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BorderTrail } from '@/components/motion-primitives/border-trail';
 import LogoAni from '@/components/ui/LogoAni';
 import TextPing from '@/components/login/TextPing';
@@ -9,6 +9,7 @@ import LoginForm from './LoginForm';
 export default function Login() {
     const imgs = [1, 2, 3, 4, 5]
     const lockedPosition = useRef({ x: 0, y: 0 })
+    const [isOpen, setIsOpen] = useState(true)
 
     useEffect(() => {
         lockedPosition.current = { x: window.scrollX, y: window.scrollY }
@@ -51,11 +52,11 @@ export default function Login() {
     }, [])
 
     return (
-        <div className='w-full h-screen fixed top-0 left-0 inset-0 bg-bg/60 backdrop-blu md:bg-black/20 z-9999999 flex items-en items-center justify-center md:pt-10'>
+        <div className={`${isOpen === true ? 'block opacity-100' : 'pointer-events-none opacity-0 '} transition-opacity duration-250 ease-in-out w-full h-screen fixed top-0 left-0 inset-0 bg-bg/60 backdrop-blur-3xl md:backdrop-blur-none md:bg-black/30 z-999999 flex items-center justify-center md:pt-10`}>
             <div className='flex items-center md:gap-8 md:p-16 md:py-14 md:border border-border-10 rounded-4xl md:rounded-[4vh] md:bg-bg/70 z-99 md:backdrop-blur-2xl'>
                 <LoginForm />
                 <img src='/trail-images/7.png' className='w-[70vh] h-[70vh] hidden md:block aspect-square scale-x-[1] p-6' />
-                <i className="ph ph-x text-3xl absolute top-6 right-6 text-muted-text cursor-pointer active:scale-90 md:block hidden"></i>
+                <i onClick={() => setIsOpen(false)} className="ph ph-x text-3xl absolute top-6 right-6 text-muted-text cursor-pointer active:scale-90 md:block hidden"></i>
             </div>
 
             {/* <TextPing /> */}
