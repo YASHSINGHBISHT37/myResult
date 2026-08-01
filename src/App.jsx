@@ -44,11 +44,11 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
 
-        <Footer />
+        {/* <Footer /> */}
 
 
-        <div className="fixed inset-0 pointer-events-none z-9 hidden md:block"><Cursor /></div>
-        <GrainOverlay />
+        <div className="fixed inset-0 pointer-events-none z-9999 hidden md:block"><Cursor /></div>
+        {/* <GrainOverlay /> */}
       </div>
     </div>
   )

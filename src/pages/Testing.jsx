@@ -1,16 +1,10 @@
 import { useRef, useEffect } from 'react'
 import { motion, useAnimationFrame, useMotionValue, useTransform, wrap } from 'motion/react'
 
-const trailImages = [1, 2, 3, 4, 5, 6, 7]
+const trailImages = [1, 2, 3, 6, 7]
+const items = [...trailImages, ...trailImages, ...trailImages]
 
-
-export default function Testing({
-    baseVelocity = 3,
-    boostVelocity = 40,
-    decay = 0.94,
-    direction = 'left', // 'left' | 'right'
-}) {
-
+function MarqueeRow({ direction = 'left', baseVelocity = 3, boostVelocity = 40, decay = 0.94 }) {
     const baseX = useMotionValue(0)
     const initialDirection = direction === 'right' ? 1 : -1
     const directionFactor = useRef(initialDirection)
@@ -20,13 +14,11 @@ export default function Testing({
     const x = useTransform(baseX, (v) => `${wrap(-33.333, 0, v)}%`)
 
     useEffect(() => {
-        directionFactor.current = direction === 'right' ? 1 : -1
-    }, [direction])
+        directionFactor.current = initialDirection
+    }, [initialDirection])
 
     useEffect(() => {
         const applyScroll = (deltaY) => {
-            // scroll flips relative to THIS marquee's own base direction,
-            // instead of overwriting it with a global absolute direction
             const scrollSign = deltaY > 0 ? -1 : 1
             directionFactor.current = initialDirection * scrollSign
             boost.current = Math.min(boost.current + Math.abs(deltaY) * 0.15, boostVelocity)
@@ -54,35 +46,42 @@ export default function Testing({
         const dt = delta / 4000
         const speed = baseVelocity + boost.current
         baseX.set(baseX.get() + directionFactor.current * speed * dt)
-        boost.current *= Math.pow(decay, delta / 10)
+        boost.current *= Math.pow(decay, delta / 8)
     })
 
-    const items = [...trailImages, ...trailImages, ...trailImages]
     return (
-        <div className='w-full min-h-400 relative z-9999 bg-black flex items-center overflow-hidden'>
+        <motion.div className="flex items-center w-max" style={{ x }}>
+            {items.map((num, i) => (
+                <div key={i} className="flex items-center md:gap-">
+                    <h1 className="md:text-[34vh] font-dot font-bol  text-6xl text-white/20 flex items-center justify-center tracking-tigh whitespace-nowrap uppercase">
+                        myResult
+                    </h1>
+                    <img src={`/trail-images/${num}.png`} className="h-22 mx-12 md:h-70 w-auto object-contain" />
+                </div>
+            ))}
+        </motion.div>
+    )
+}
 
-            <div>
-                <motion.div className="flex items-center w-max py-6" style={{ x }}>
-                    {items.map((num, i) => (
-                        <div key={i} className="flex items-center md:gap-12 borde gap-5">
-                            <h1 className="md:text-[26vh] text-6xl border rounded-[6vh] p-14 border-border-20 flex items-center justify-center font-bol tracking-tighter whitespace-nowrap uppercase">Result</h1>
-                            <img src={`/trail-images/${num}.png`} className="h-22 font md:h-120 w-auto borde border-border-20 p-16 object-contain" />
-                        </div>
-                    ))}
-                </motion.div>
-
-                <motion.div className="flex items-center w-max py-6" style={{ x }}>
-                    {items.map((num, i) => (
-                        <div key={i} className="flex items-center md:gap-12 borde gap-5">
-                            <h1 className="md:text-[26vh] text-6xl border rounded-[6vh] p-14 border-border-20 flex items-center justify-center font-bol tracking-tighter whitespace-nowrap uppercase">Result</h1>
-                            <img src={`/trail-images/${num}.png`} className="h-22 font md:h-120 w-auto borde border-border-20 p-16 object-contain" />
-                        </div>
-                    ))}
-                </motion.div>
-
+export default function Testing({
+    baseVelocity = 3,
+    boostVelocity = 40,
+    decay = 0.94,
+    rows = ['left', 'right', 'left'], // yahan directions control karo
+}) {
+    return (
+        <div className='w-full min-h-300 relative z-9999 bg-black flex items-center overflow-hidden'>
+            <div className='flex flex-col gap-'>
+                {rows.map((dir, i) => (
+                    <MarqueeRow
+                        key={i}
+                        direction={dir}
+                        baseVelocity={baseVelocity}
+                        boostVelocity={boostVelocity}
+                        decay={decay}
+                    />
+                ))}
             </div>
         </div>
     )
 }
-
-

@@ -11,8 +11,8 @@
 }
 
 @font-face {
-  font-family: "tall";
-  src: url("/fonts/tall.ttf") format("ttf");
+  font-family: "dot";
+  src: url("/fonts/Dot.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -20,7 +20,7 @@
 
 :root {
   --bg: #0D0D0D;
-  --muted-bg: rgba(255, 255, 255, 0.01);
+  --muted-bg: rgba(255, 255, 255, 0.04);
   --bg-20: rgba(0, 0, 0, 0.20);
   --text: white;
   --muted-text: rgba(255, 255, 255, 0.5);
@@ -38,7 +38,7 @@
   --color-border-10: var(--border-10);
 
   --font-reg: "MyFont", Arial, Helvetica, sans-serif;
-  --font-tall: "tall", sans-serif;
+  --font-dot: "Dot", sans-serif;
 }
 
 .scrollbar-hide {

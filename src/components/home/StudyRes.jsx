@@ -8,7 +8,7 @@ import LogoAni from '../ui/LogoAni';
 export default function StudyRes() {
     const screenSize = useScreenSize()
     return (
-        <div className="relative w-full min-h-330 flex flex-col p-6 py-30 bg-black">
+        <div className="relative w-full min-h-330 flex flex-col p-6 py-30 bg-black overflow-hidden">
 
             <div className="flex flex-col w-full relative z-99">
                 <div className="text-text w-7xl pl-30 text-[16vh] uppercase tracking-tighter font-bold flex flex-col items-center">
