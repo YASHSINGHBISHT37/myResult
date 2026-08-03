@@ -110,7 +110,7 @@ export default function Nav() {
 
     return (
         <>
-            <nav className="w-full fixed left-0 top-0 flex items-center justify-between p-4 md:p-5 md:px-7 z-9999999 md:mix-blend-difference">
+            <nav className="w-full fixed left-0 top-0 flex items-center justify-between p-4 md:p-5 md:px-7 z-9999999 md:mix-blend-differenc">
                 <div className="flex items-center gap-2 cursor-pointer">
                     <LogoAni size={4.4} />
                     <h1 style={{ fontSize: `2.6vh` }} className="font-bold mix-blend-difference tracking-tighter bg-linear-to-tr to-white from-[#333] bg-clip-text text-transparent">myResult

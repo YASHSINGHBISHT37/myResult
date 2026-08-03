@@ -20,6 +20,7 @@ import useLenis from '@/components/ui/useLenis'
 import Cursor from './components/ui/Cursor'
 import GrainOverlay from './components/ui/GrainOverlay'
 import NotFound from './components/ui/NotFound'
+import Loading from './components/ui/Loading'
 
 
 export default function App() {
@@ -49,6 +50,7 @@ export default function App() {
 
         <div className="fixed inset-0 pointer-events-none z-9999 hidden md:block"><Cursor /></div>
         {/* <GrainOverlay /> */}
+        {/* <Loading/> */}
       </div>
     </div>
   )
