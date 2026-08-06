@@ -37,10 +37,12 @@ export default function IpuResult() {
 
     const [bg, setBg] = useState('#000')
 
+    const [select, setSelect] = useState('Over all')
+
     return (
         <div className='w-full px-4 min-h-full flex md:items-center md:justify-center bg-bg'>
 
-            <div className='borde fixed top-20 right-2 md:right-4 z-99999999 flex flex-col gap-1'>
+            <div className='borde fixed bottom-2 right-2 md:right-4 z-99999999 flex flex-col gap-1'>
                 {theme.map((item, i) => (
                     <div on onClick={() => setBg(item)} key={i} style={{ backgroundColor: item }} className='border nth-[1]:border-white/30 border-black rounded-full h-4 w-4 cursor-pointer hover:scale-110 transition-all ease-in-out duration-300'></div>
                 ))}
@@ -102,7 +104,9 @@ export default function IpuResult() {
 
                         <div className='flex gap-2 flex-wrap w-full mt-3 md:mt-0'>
                             {sem.map((item, i) => (
-                                <div className='border w-fit border-border-10 p-1 px-2 md:p-1.5 rounded-xl backdrop-blur-xs md:px-3 cursor-pointer relative z-9999999 bg-muted-bg hover:scale-106 transition-all ease-in-out duration-300'>
+                                <div key={i} onClick={() => setSelect(item)}
+                                    className={`border w-fit p-1 px-2 md:p-1.5 rounded-xl backdrop-blur-xs md:px-3 cursor-pointer relative z-9999999 transition-all ease-in-out duration-300 hover:scale-106
+                                        ${select === item ? 'bg-pink-300 text-black border-pink-300' : 'bg-muted-bg border-border-10'}`}>
                                     <h1 className='text-xs md:text-sm font-dot uppercase tracking-wide whitespace-nowrap'>{item}</h1>
                                 </div>
                             ))}
@@ -124,8 +128,7 @@ export default function IpuResult() {
 
                 {/* details */}
                 <div className='md:flex grid grid-cols-2 md:gap-4 gap-2 md:mt-6 relative'>
-                    {/* <img className="w-12 sm:w-16 md:w-24 lg:w-40 aspect-square shrink-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden" src="/trail-images/3.png" /> */}
-                    {/* <div className="w-5 backdrop-blur-xs sm:w-16 md:w-24 lg:w-40 aspect-square shrink-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden bg-white/10 rounded-full" ></div> */}
+                    <img className="w-12 sm:w-16 md:w-24 z-1 lg:w-40 aspect-square shrink-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden" src="/trail-images/3.png" />
                     {semMarks.map((item) => (
                         <div
                             key={item.label}
@@ -225,9 +228,9 @@ export default function IpuResult() {
 
                     {subjects.map((item) => (
 
-                        <div className='border border-border-10 rounded-2xl p-3 px-4 bg-muted-bg backdrop-blur-xs'>
+                        <div className='border border-border-10 rounded-2xl p-3 px-4 bg-muted-bg backdrop-blur-xs hover:scale-104 transition-all duration-300 ease-in-out'>
                             <div className='flex justify-between gap-4'>
-                                <h1 className="text-sm text-text leading-4">{item.name}</h1>
+                                <h1 className="text-sm font-bold text-text leading-4">{item.name}</h1>
                                 <h1 className="text-[1.2vh] h-5 mb-1 shrink-0 flex items-center justify-center text-muted-text border border-border-10 w-fit rounded-full px-2 p-0.5 backdrop-blur-xs ">{item.code}</h1>
                             </div>
 
@@ -259,10 +262,14 @@ export default function IpuResult() {
                             </div>
                         </div>
                     ))}
+                    <div className='text-center flex items-center justify-center'>
+                        <h1 className=' border border-border-10 rounded-full px-3 cursor-pointer font-bold hover:scale-104 transition-all ease-in-out duration-300 py-1.5 bg-muted-bg backdrop-blur-xs text-xs md:text-sm'>Check Another Result</h1>
+                    </div>
 
                 </div>
 
             </div>
+
         </div>
     )
 }

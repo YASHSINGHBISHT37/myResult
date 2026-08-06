@@ -75,7 +75,7 @@ export default function Nav() {
                         {navItems.map((item) => (
                             <div key={item.href} className="overflow-hidden text-right">
                                 <motion.div variants={textVar}>
-                                    <Link to={item.href} onClick={closeMenu} className={`text-4xl md:text-7xl tracking-tighter cursor-pointer leading-10 md:leading-18 pr-2 font-bold`}>
+                                    <Link to={item.href} onClick={closeMenu} className={`text-4xl md:text-7xl tracking-tighter cursor-pointer leading-10 md:leading-18 pr-2 font-bold  ${pathname === item.href ? "text-text" : "text-muted-text"}`}>
                                         {item.name}
                                     </Link>
                                 </motion.div>
@@ -94,7 +94,7 @@ export default function Nav() {
                                 <motion.div variants={textVar}>
                                     <a
                                         href={item.href}
-                                        target={item.href.startsWith('mailto:') ? undefined : '_blank'}
+                                        target={item.href.startsWith('mailto:yashbisht0007@gmail.com') ? undefined : '_blank'}
                                         rel={item.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                                         className={`text-4xl md:text-6xl tracking-tighter leading-10 md:leading-15 font-bold cursor-pointer`}>
                                         {item.name}
@@ -110,10 +110,14 @@ export default function Nav() {
 
     return (
         <>
-            <nav className="w-full fixed left-0 top-0 flex items-center justify-between p-4 md:p-5 md:px-7 z-9999999 md:mix-blend-differenc">
+            <nav className="w-full fixed left-0 top-0 flex items-center justify-between p-4 md:p-5 md:px-7 z-9999999999 backdrop-blur-xs">
                 <div className="flex items-center gap-2 cursor-pointer">
                     <LogoAni size={4.4} />
-                    <h1 style={{ fontSize: `2.6vh` }} className="font-bold mix-blend-difference tracking-tighter bg-linear-to-tr to-white from-[#333] bg-clip-text text-transparent">myResult
+                    {/* <h1 style={{ fontSize: `2.6vh` }} className="font-bold mix-blend-difference tracking-tighter bg-linear-to-tr to-white from-[#333] bg-clip-text text-transparent">myResult
+                        <span className="font-normal">®</span>
+                    </h1> */}
+
+                    <h1 style={{ fontSize: `2.6vh` }} className="font-bold mix-blend-difference tracking-tighter">myResult
                         <span className="font-normal">®</span>
                     </h1>
                 </div>

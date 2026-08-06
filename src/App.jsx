@@ -48,7 +48,7 @@ export default function App() {
         {/* <Footer /> */}
 
 
-        <div className="fixed inset-0 pointer-events-none z-9999 hidden md:block"><Cursor /></div>
+        {/* <div className="fixed inset-0 pointer-events-none z-9999 hidden md:block"><Cursor /></div> */}
         {/* <GrainOverlay /> */}
         {/* <Loading/> */}
       </div>

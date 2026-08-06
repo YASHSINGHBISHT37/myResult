@@ -40,99 +40,118 @@ export default function LeadStudents() {
         )
     }, [query])
 
+    const profileImg = {
+        boy: [1, 2, 3, 4, 5, 6],
+        girl: [1, 2, 3, 4, 5],
+    }
+
+    const [profile, setProfile] = useState()
+
     return (
-        <div className='md:w-6xl flex flex-col gap-3'>
-            <div className=" flex items-center gap-3">
-                {/* Search */}
-                <div className='border border-border-10 rounded-full bg-muted-bg h-12 items-center flex px-5 w-full gap-2'>
-                    <i className="ph ph-magnifying-glass text-lg"></i>
-                    <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} className='text-text text-sm dark:text-text w-full outline-0' placeholder='Search by Name / Enrollment Number' />
-                </div>
+        <div className='md:w-6xl w-full flex flex-col gap-3'>
 
-                <div className='flex items-center justify-center gap-3 border border-border-10 h-12 rounded-2xl px-4 bg-bg-20'>
-                    <div className='flex items-center gap-1'>
-                        <GradText text={filteredLeaderboard.length} size={1.6} />
-                        <h1 className='text-muted-text text-sm'>Students</h1>
-                    </div>
-
-                    <div className='flex items-center gap-1 border-l border-border-20 pl-3'>
-                        <GradText text={leaderboard.length} size={1.6} />
-                        <h1 className='text-muted-text text-sm'>Total</h1>
-                    </div>
+            {/* Search */}
+            <div className=" flex items-center gap-3 h-10">
+                <div className='border border-border-10 rounded-full h-12 items-center flex px-4 w-full gap-2 backdrop-blur-xs bg-bg/20 mb-4'>
+                    <i className="ph ph-magnifying-glass text-xl"></i>
+                    <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} className='text-text text-xs dark:text-text w-full outline-0' placeholder='Search by Name / Enrollment Number' />
                 </div>
             </div>
 
-            {filteredLeaderboard.length === 0 && (
-                <div className='flex flex-col items-center mt-20 gap-3'>
-                    <Error size='11' />
-                    <h1 className="font-bold text-4xl text-center bg-linear-to-tr to-white from-[#333] bg-clip-text text-transparent">No Studend Found.</h1>
-                </div>
-            )}
+            <div onClick={() => setProfile(false)} className=' border border-border-10 fixed bg-bg backdrop-blur-xs bottom-2 z-9 right-2 rounded-3xl px-3 p-2'>
+                <h1 className='text-xs font-dot'>Change Profile</h1>
+            </div>
 
-            <Accordion className='flex w-full flex-col gap-2'>
+            <div className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg/80 w-full h-full z-9 flex items-end justify-center p-4
+                ${profile === false ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+
+                <div className={`border border-border-20 rounded-4xl backdrop-blur-3xl w-full p-5 px-6 flex flex-col gap-3 relative
+                ${profile === true ? 'bottom-100' : 'bottom-0'}`}>
+                    <i onClick={() => setProfile(false)} className="ph ph-x text-muted-text text-2xl absolute top-4 right-4 active:scale-80 transition-all ease-in-out duration-200" />
+                    <div>
+                        <h1 className='font-dot font-bold text-3xl'>Change Profile</h1>
+                        <p className='text-righ text-xs text-muted-text tracking-tight'>You can Change it Once.</p>
+                    </div>
+                    <div>
+                        <h1 className='text-xl font-dot uppercase pb-1'>boy</h1>
+                        <div className='grid grid-cols-6'>
+                            {profileImg.boy.map((item, i) => (
+                                <div key={i} className='border border-border-20 bg-white p-1 rounded-full w-11 h-11 flex items-center justify-center active:scale-80 transition-all ease-in-out duration-200'>
+                                    <img className='w-full h-full' src={`/profile/boy-${item}.png`} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div>
+                        <h1 className='text-xl font-dot uppercase pb-1'>Girl</h1>
+                        <div className='grid grid-cols-6'>
+                            {profileImg.girl.map((item, i) => (
+                                <div key={i} className='border border-border-20 bg-white p-1 rounded-full w-11 h-11 flex items-center justify-center active:scale-80 transition-all ease-in-out duration-200'>
+                                    <img className='w-full h-full' src={`/profile/girl-${item}.png`} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <Accordion className='flex w-full flex-col gap-1'>
                 {filteredLeaderboard.map((student, i) => (
                     <AccordionItem
                         key={student.enrollmentNo}
                         value={student.enrollmentNo}
-                        className='border rounded-3xl border-border-10 bg-bg-20 w-full p-4 pb-0 pr-5 text-text flex flex-col cursor-pointer '>
+                        className='border border-border-10 flex flex-col justify-center w-full h-full backdrop-blur-xs bg-bg/40 rounded-3xl px-4 py-3 pb-0 pl-5'>
 
-                        <AccordionTrigger className='w-full h-full flex items-center justify-between cursor-pointer mb-4'>
-                            <div className='flex items-center gap-3 md:gap-4'>
-                                <div className='flex items-center gap-2'>
-                                    <div className='h-9 w-9 md:h-10 md:w-10 font-bold text-2xl text-muted-text flex items-center justify-center borde border-border rounded-full shrink-0'>
-                                        {student.rank}
-                                    </div>
-                                    <div className='h-10 w-10 md:h-12 md:w-12 flex items-center justify-center borde border-border rounded-full overflow-hidden shrink-0'>
-                                        <LogoAni size={5} />
+                        <AccordionTrigger className='w-full h-full flex items-center justify-between cursor-pointer mb-3'>
+                            <div className='flex items-center gap-3'>
+
+                                {/* Rank + Profile */}
+                                <div className='flex items-center gap-4'>
+                                    <h1 className='text-lg font-dot font-bold bor'> {i + 1}</h1>
+                                    <div className='border border-border-20 bg-white p-1 rounded-full w-11 h-11 flex items-center justify-center'>
+                                        <img className='w-full h-full' src="/profile/boy-1.png" />
                                     </div>
                                 </div>
-                                <div className='w-full text-left'>
-                                    <div className='flex items-center gap-3'>
-                                        <h1 className='text-base md:text-xl font-bold'>{student.name}</h1>
-                                        {/* <GradText size={2.5} text={student.name} /> */}
 
-                                        <div className='flex items-center gap-1 p-0.5 px-2 bg-bg text-xs text-muted-text border border-border-10 rounded-full'>
-                                            <p className='text-xs text-muted-text'>Batch 2024-28</p>
-                                        </div>
-
+                                {/* Name */}
+                                <div className='flex flex-col '>
+                                    <div>
+                                        <h1 className='font-bold uppercase font-dot text-md'>{student.name}</h1>
                                     </div>
 
-                                    <div className='flex items-center gap-3 md:gap-4 mt-1'>
-                                        <div className='flex items-center gap-1 text-xs text-muted-text'>
-                                            <i className="ph ph-building-apartment"></i>
-                                            <p className='text-xs text-muted-text'>IITM</p>
-                                        </div>
-
-                                        <div className='flex items-center gap-1 text-xs text-muted-text'>
-                                            <i className="ph ph-graduation-cap"></i>
-                                            <p className='text-xs text-muted-text'>BCA</p>
-                                        </div>
-
+                                    <div className='flex gap-2 items-center'>
+                                        <h1 className='text-xs text-muted-text tracking-tighter'>IITM</h1>
+                                        <div className='border-r border-muted-text h-3'></div>
+                                        <h1 className='text-xs text-muted-text tracking-tighter'>BCA</h1>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className='text-right shrink-0'>
-                                <GradText size={4.3} text={student.gpa} />
-                                <p className='text-xs text-muted-text'>SGPA</p>
+                            {/* SGPA */}
+                            <div>
+                                <h1 className='text-xl md:text-3xl font-dot font-bold '>9.39</h1>
+                                <p className='text-xs tracking-tighter text-muted-text'>SGPA</p>
                             </div>
                         </AccordionTrigger>
 
                         <AccordionContent>
-                            <div className='w-full border-t border-border-10 grid grid-cols-2 md:grid-cols-4 gap-4 py-4 pl-10'>
+                            <div className='w-full border-t border-border-10 grid grid-cols-3 md:grid-cols-4 gap-4 pl-4 md:gap-2 py-4 md:pl-10'>
                                 {stdDetail(student).map((item, j) => (
                                     <div key={j} className='flex flex-col gap- text-muted-text'>
-                                        <p className='text-xs text-muted-text uppercase'>{item.name}</p>
-                                        <p className='text-sm md:text-md text-text uppercase'>
+                                        <p className='text-xs text-muted-text uppercase font-dot'>{item.name}</p>
+                                        <p className='text-sm md:text-md text-text uppercase tracking-tighter'>
                                             {item.name === 'Rank' ? `#${item.sub} of ${leaderboard.length}` : item.sub}
                                         </p>
                                     </div>
                                 ))}
                             </div>
                         </AccordionContent>
+
                     </AccordionItem>
                 ))}
             </Accordion>
-        </div>
+        </div >
     )
 }

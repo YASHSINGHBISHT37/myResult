@@ -1,6 +1,6 @@
 import LogoAni from '@/components/ui/LogoAni'
 import LeadStudents from '@/components/leaderboard/LeadStudents'
-import React from 'react'
+import React, { useState } from 'react'
 import GradText from '@/components/ui/GradText'
 import PageTemplate from '@/components/ui/PageTemplate'
 
@@ -16,25 +16,32 @@ export default function Leaderboard() {
         { name: 'Semester', select: 'Sem 1' },
     ]
 
-    return (
-        <PageTemplate>
-            <div className='flex flex-col gap-2 text-center'>
-                <span className='relative'>
-                    <span className='text-3xl absolute top-4 right-8 tracking-tighter font-bold text-center bg-linear-to-br from-white via-[#ffcc00] to-[#ffcc00] bg-clip-text text-transparent'>#Rank</span>
-                    <h1 style={{ fontSize: '18vh' }} className="font-bold tracking-tighter bg-linear-to-tr leading-46 to-white from-[#333] bg-clip-text text-transparent">Leaderboard</h1>
-                </span>
 
-                <p className='text-xs text-muted-text text-center leading-3.5 md:leading-4'>
-                    We only take your data when you allow us to take it and <br className='hidden md:block' />
-                    this leaderboard show only those student marks who allowed it to show on leaderboard.
-                </p>
+    return (
+        <div className='w-full bg-amber-00 h-full py-20 px-4'>
+            <div className="fixed w-full h-full top-0 left-0 transition-all ease-in-out duration-700 bg-linear-to-t to-black from-[#333] bg-transparent"></div>
+
+            {/* Heading */}
+            <div className="flex flex-col justify-between md:mb-16 lg:mb-20 md:px-10 lg:px-30 z-1 relative mb-20">
+                <div className="text-[#ECF1F0] text-[clamp(2.75rem,14vw,9rem)] lg:text-[clamp(10rem,20vh,18rem)] uppercase tracking-tighter font-bold md:ml-4 lg:ml-10">
+                    {/* <h2 className="text-sm sm:text-base md:text-lg lg:text-xl tracking-normal text-yellow-500 font-bold capitalize pl-14 sm:pl-8 md:pl-16 lg:pl-30 pb-2 md:pb-6 lg:pb-10">[ # ]</h2> */}
+
+                    <h2 className="leading-none md:leading-tight lg:leading-38">Rank</h2>
+                    <h2 className="leading-none md:leading-tight lg:leading-44 tracking-wide md:text-left md:pl-10 lg:pl-50 font-dot text-yellow-500">Leaderboard</h2>
+                </div>
+
+                <div className="w-full flex flex-col items-end md:gap-4 md:px-4 lg:px-10">
+                    <p className="text-xs sm:text-sm md:text-base lg:text-xl tracking-tight text-muted-text w-full max-w-[20rem] sm:max-w-xs md:max-w-sm lg:max-w-md mt-4 leading-3.5 md:leading-5 lg:leading-6 text-right">
+                        We only take your data when you allow us to take it and this leaderboard show only those student marks who allowed it to show on leaderboard.
+                    </p>
+                </div>
             </div>
 
 
-            <div className="flex flex-col items-center gap-4 mt-12 md:mt-20 w-full">
+            <div className="flex flex-col items-center gap-4 mt-12 md:mt-20 w-full z-1 relative">
 
                 {/* Select Course, Branch, Batch and Semester. */}
-                <div className='w-full md:w-auto flex flex-col gap-6 md:gap-8 border border-border-10 mb-4 rounded-3xl p-4 md:px-10 bg-muted-bg'>
+                {/* <div className='w-full md:w-auto flex flex-col gap-6 md:gap-8 border border-border-10 mb-4 rounded-3xl p-4 md:px-10 bg-muted-bg'>
 
                     <div className='flex flex-col items-center md:items-start text-center md:text-left'>
                         <span className='text-lg md:text-xl text-text font-bold'>Bachelor of Computer Science</span>
@@ -65,12 +72,12 @@ export default function Leaderboard() {
                             <span className="text-md text-muted-text group-hover:text-[#ffcc00] tracking-tighter transition-all duration-250 ease-in-out">Show</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
 
                 <LeadStudents />
 
             </div>
-        </PageTemplate>
+        </div>
     )
 }
